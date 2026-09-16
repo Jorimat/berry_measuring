@@ -12,5 +12,5 @@ Per bes
 - vol = 4*pi/3*r1-r2*r3
 
 Outputs
-- Plot per foto: foto zelf, segmentatie, ellipsfit met assen (bes.../....jpg)
+- Per inputfoto een figuur met drie subplots: foto zelf, segmentatie, ellipsfit met assen (bes.../....jpg). Indien geen kwaliteitsvol masker gemaakt: lege subplots 2 en 3.
 - Tabel met resultaten per bes (results.xlsx)
