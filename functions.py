@@ -129,17 +129,17 @@ def make_mask(img, predictor, step = 500, visualize = False):
                 break
 
             # Greenness
-            # mask_green_min = 0.8
+            mask_green_min = 40
             mask_coords = np.array(np.where(mask)).transpose()
             mask_rgb = np.array([img[x, y] for x, y in  mask_coords])
             # mask_green = (mask_rgb[:,0] < mask_rgb[:,1]) & (mask_rgb[:,2] < mask_rgb[:,1]) 
             # mask_green = mask_rgb[:,0] < mask_rgb[:,1]
             mask_green = 2*mask_rgb[:,1] - mask_rgb[:,0] - mask_rgb[:,2]
             mask_greenness = np.mean(mask_green)
-            # if mask_greenness < mask_green_min:
-            #     if visualize:
-            #         print(f'Rejected because of greenness: {mask_greenness}')
-            #     break
+            if mask_greenness < mask_green_min:
+                if visualize:
+                    print(f'Rejected because of greenness: {mask_greenness}')
+                break
 
             # Filledness
             fill_rate_min = 0.8
